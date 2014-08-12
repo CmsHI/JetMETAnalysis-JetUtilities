@@ -562,7 +562,7 @@ void TProfileMDF::ReadFromFile(TString filename, TString treeName){
 TProfileMDF* TProfileMDF::ReduceDimensions(TString name, UInt_t axisNumber, Int_t firstbin = 0, Int_t lastbin = -1){
 
    Int_t inNbin;
-   Int_t firstOutBin, lastOutBin;
+   //Int_t firstOutBin, lastOutBin;
    vector<TAxis*> fAxesTemp = fAxes;
    vector<TAxis*> outAxes;
    TAxis* inAxis;
@@ -616,7 +616,7 @@ TProfileMDF* TProfileMDF::ReduceDimensions(TString name, UInt_t axisNumber, Int_
    // Fill the projected histogram
    Double_t cont,sw2,bent,bsw2;
    Double_t totcont = 0;
-   Bool_t  computeErrors = h1->GetSumw2N();
+   //Bool_t  computeErrors = h1->GetSumw2N();
    vector<Int_t> inbins;
    inbins.assign(fAxes.size(),0);
    vector<Int_t> outbins;
@@ -625,8 +625,8 @@ TProfileMDF* TProfileMDF::ReduceDimensions(TString name, UInt_t axisNumber, Int_
    // implement filling of projected histogram
    // outbin is bin number of outAxis (the projected axis). Loop is done on all bin of TH2 histograms
    // inbin is the axis being integrated. Loop is done only on the selected bins
-   firstOutBin = 0;
-   lastOutBin = h1->GetNbins();
+  // firstOutBin = 0;
+  // lastOutBin = h1->GetNbins();
 
    for (Int_t outbin = 0; outbin < h1->GetNbins(); ++outbin) {
       cont = 0;

@@ -418,6 +418,7 @@ void TProfileMDD::LoopOverBins(){
 // --------------------------------------------------------------
 TProfileMDD* TProfileMDD::ReadFromFile(TString filename, TString objectName){
    TFile *f = new TFile(filename);
+   if (!f->IsOpen()) return 0;
    return (TProfileMDD*)gDirectory->Get("RespVsPileup");
 }
 
